@@ -1,4 +1,5 @@
 import express from "express";
+import { errorHandler } from "./middlewares/error.middleware.js";
 
 export const app = express();
 
@@ -9,3 +10,5 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("The API is working 🚀");
 });
+
+app.use(errorHandler);
